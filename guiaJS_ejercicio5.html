@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador de Autos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-5">Tienda de Autos - Descuentos</h2>
+
+        <div class="mb-3">
+            <label for="coche" class="form-label">Selecciona un auto:</label>
+            <select id="coche" class="form-select" onchange="actualizarImagen()">
+                <option value="fiesta">Ford Fiesta</option>
+                <option value="focus">Ford Focus</option>
+                <option value="escape">Ford Escape</option>
+            </select>
+        </div>
+
+    <div class="mb-3">
+        <label for="precio" class="form-label">Ingrese el precio ($):</label>
+        <input type="number" id="precio" class="form-control" placeholder="Ej: 20000">
+    </div>
+    <button onclick="calcularPrecioFinal()" class="btn btn-primary">Calcular Descuento</button>
+
+    <div id="precioFinal" class="mt-5 fs-5 text-success"></div>
+    </div>
+    
+    <div class="text-center">
+        <img id="imagenCoche" src="" alt="Imagen del coche">
+    </div>
+
+    
+    <script>
+        function calcularPrecioFinal(){
+            const coche = document.getElementById("coche").value;
+            const precio = parseFloat(document.getElementById("precio").value);
+
+            let descuento = 0;
+            let nombreCoche = "";
+
+            switch(coche){
+                case "fiesta":
+                    descuento = 0.05;
+                    nombreCoche = "Ford Fiesta";
+                    break;
+                case "focus":
+                    descuento = 0.10;
+                    nombreCoche = "Ford Focus";
+                    break;
+                case "escape":
+                    descuento = 0.20;
+                    nombreCoche = "Ford Escape";
+                    break;
+                default:
+                    nombreCoche: "Desconocido";
+            }
+
+            //calcular monto a descontar en dólares
+            const montoDescuento = precio * descuento;
+
+            //precio final que pagará el cliente
+            const precioFinal = precio - montoDescuento;
+
+            document.getElementById("precioFinal").innerHTML = `
+            <strong>Auto:</strong>${nombreCoche}<br>
+            <strong>Descuento aplicado:</strong>${montoDescuento}<br>
+            <strong>Precio final:</strong>${precioFinal.toFixed(2)}
+            `;
+
+        }
+
+
+        function actualizarImagen(){
+            const imagen = document.getElementById("imagenCoche");
+            const coche = document.getElementById("coche").value;
+            
+            let url = "";
+
+            switch(coche){
+                case "fiesta":
+                    url = "https://images.hgmsites.net/med/2016-ford-fiesta-4-door-sedan-se-angular-front-exterior-view_100514914_m.jpg";
+                    break;
+                case "focus":
+                    url = "https://images.hgmsites.net/med/2018-ford-focus-electric-hatch-angular-front-exterior-view_100629625_m.jpg";
+                    break;
+                case "escape":
+                    url = "https://images.jazelc.com/uploads/galpinford-m2en/2022-Ford-Escape-seo.png";
+                    break;
+                default:
+                    url = "https://external-preview.redd.it/gDvWGpie66fbsaBgdg3pOdQNks9E45h9nc2ReVJOI2o.jpg?auto=webp&s=fb5375d9c05c837ebdc8d7153cbf3b2af587b3d2";
+
+            }
+            
+            imagen.src = url;        
+        }
+        //primera imagen
+        actualizarImagen();
+    </script>
+
+
+
+
+</body>
+</html>
+
