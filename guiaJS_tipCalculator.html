@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Propina - El Buen Sabor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Calculadora de Propina 💸</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6 bg-white p-4 rounded shadow-sm">
+                <div class="mb-3">
+                    <label for="labelcuenta" class="form-label">Monto de la cuenta ($)</label>
+                    <input type="number" class="form-control" id="cuenta" placeholder="Ej: $50">
+                </div>
+                <div class="mb-3">
+                    <label for="porcentaje" class="form-label">Selecciona el porcentaje de propina</label>
+                    <select name="tip-percentage" id="porcentaje" class="form-select">
+                        <option value="10">10%</option>
+                        <option value="15" selected>15%</option>
+                        <option value="20">20%</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary w-100" onclick="calcularPropina()">Calcular Propina</button>
+                <div class="mt-4" id="resultado"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
