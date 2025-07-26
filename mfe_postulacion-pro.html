@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <title>Impulsar tu postulación MiFuturoEmpleo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <style>
+        .bg-purple {
+            background: linear-gradient(90deg, #8D49F7 0%, #6B53FF 100%);
+        }
+        h1, h2, h3, h4, h5, a, label, span, button, p, li {
+            font-family: "Mulish", sans-serif;
+        }
+        .rounded-12 {
+            border-radius: 12px;
+        }
+        .card-plan {
+            border-color: #A788FF!important;
+            height: 100%;
+        }
+        .selected {
+            border-width: 3px !important; /* Grosor del borde */
+            border-color: #7B4EFB !important; /* Color opcional */
+        }
+        .btn-full {
+            width: 100% !important;
+            height: 46px;
+            font-size: 16px;
+        }
+        .btn-danger {
+            background: linear-gradient(90deg, #8D49F7 0%, #6B53FF 100%);
+            border-color: #8D49F7;
+            border-radius: 4px;
+            margin: 0;
+        }
+
+        .btn-danger-ligth {
+        background: white;
+        border-color: #7b4efb;
+        border-width: 1px;
+        color: #7b4efb;
+        border-radius: 4px;
+        margin: 0;
+        outline: none;
+      }
+      .btn-danger-ligth:hover {
+        background-color: #7b4efb;
+        color: white;
+        transition-duration: 0.7s;
+      }
+      .text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    
+  }
+
+.customRadio input[type="radio"] {
+  position: absolute;
+  right: 0;
+}
+
+.customRadio input[type="radio"]+label {
+  position: relative;
+  padding: 3px 0 0 40px;
+  cursor: pointer;
+}
+
+.customRadio input[type="radio"]+label:before {
+  content: '';
+  background: #fff;
+  border: 2px solid #7B4EFB;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.customRadio input[type="radio"]+label:after {
+  content: '';
+  background: #7B4EFB;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  opacity: 0;
+  transform: scale(2);
+  transition: transform 0.3s linear, opacity 0.3s linear;
+}
+
+.customRadio input[type="radio"]:checked+label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.title-card {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+
+
+    </style>
+    <section class="text-center bg-purple">
+        <div class="container">
+            <div class="row py-lg-5 py-4">
+                <div class="col-lg-8 col-md-8 mx-auto">
+                    <h1 class="text-white fs-2 fw-bolder mb-0">Selecciona el tipo de tu postulación</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-lg-5 py-4">
+        <div class="container">
+            <div class="d-flex flex-wrap gap-3 align-items-start justify-content-center">
+              <div class="col-md-10 bg-white rounded-12 shadow-sm p-4 d-flex align-items-center gap-3 mb-4">
+                <img src="https://www.cocacolaep.com/assets/legacy-assets/Uploads/resources/Coca-Cola-1210.jpg" alt="Logo empresa" class="rounded" style="width: 100px; height: 100px; object-fit: cover;">
+                <div>
+                  <h4 class="mb-1 fw-bolder" style="color: #8D49F7;">Consultor de impuestos & servicios legales - Business Tax</h4>
+                  <small class="text-muted"><strong>Coca Cola Company</strong> - Publicado hoy</small>
+                </div>
+             </div>
+                <div class="col-md-10 row flex-wrap flex-lg-nowrap">
+                    <!-- Postulación Básica -->
+                    <div class="col-12 col-lg-4">
+                      <div class="border border-1 card-plan rounded-12 selectable-col" onclick="selectCard(this)">
+                        <div class="px-4 px-lg-5 py-lg-5 py-4 rounded-12 title-card" style="background-color: #F8F9FA;">
+                          <div class="d-flex justify-content-between customRadio position-relative">
+                            <span class="px-2 py-1 rounded-3 bg-secondary text-white fw-bolder text-sm">
+                              Gratis
+                            </span>
+                            <input class="form-check-input offer-radio" type="radio" name="plan" value="basic" style="position:absolute; right:10px; top:10px;">
+                          </div>
+                          <h2 class="fs-4 text-dark fw-bolder mt-3">Postulación básica</h2>
+                          <p class="fs-6 fw-light text-dark">
+                            Aplica a la oferta de empleo gratis.
+                          </p>
+                          <h3 class="fs-4 text-dark fw-bolder mt-3">$0.00</h3>
+                        </div>
+                        <div class="px-4 py-3">
+                          <ul class="d-flex flex-column gap-2">
+                            <li class="fs-6 fw-light text-dark">Visibilidad normal por orden de aplicación</li>
+                            <li class="fs-6 fw-light text-dark">Correo del reclutador no compartido</li>
+                            <li class="fs-6 fw-light text-dark">Tamaño de CV hasta 500KB</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Postulación Pro -->
+                    <div class="col-12 col-lg-4 mt-4 mt-lg-0">
+                      <div class="border border-1 card-plan rounded-12 selectable-col" onclick="selectCard(this)">
+                        <div class="px-4 px-lg-5 py-lg-5 py-4 rounded-12 title-card" style="background-color: #F1ECFF;">
+                          <div class="d-flex justify-content-between customRadio position-relative">
+                            <span class="px-2 py-1 rounded-3 bg-warning text-dark fw-bolder text-sm">
+                              <i class="bi bi-lightning-charge-fill"></i> Pro
+                            </span>
+                            <input class="form-check-input offer-radio" type="radio" name="plan" value="pro" style="position:absolute; right:10px; top:10px;">
+                          </div>
+                          <h2 class="fs-4 text-dark fw-bolder mt-3">Postulación Pro</h2>
+                          <p class="fs-6 fw-light text-dark">
+                            Aumenta tus posibilidades de llegar a fases de entrevistas.
+                          </p>
+                          <h3 class="fs-3 text-dark fw-bolder mt-3">$3.50</h3>
+                        </div>
+                        <div class="px-4 py-4">
+                          <ul class="d-flex flex-column gap-2">
+                            <li class="fs-6 fw-light text-dark"><strong>Tu postulación tendrá posición privilegiada en la bandeja del reclutador</strong></li>
+                            <li class="fs-6 fw-light text-dark"><b>Acceso a nombre y correo de reclutador</b></li>
+                            <li class="fs-6 fw-light text-dark">Mayor probabilidad que tu postulación sea vista y evaluada</li>
+                            <li class="fs-6 fw-light text-dark">Tamaño de CV hasta 5MB máximo</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="rounded-12 py-3 px-3 bg-light">
+                            <div class="bg-white rounded-12 py-3 px-3">
+                                <div class="d-flex justify-content-between">
+                                    <p class="fw-bolder text-dark">Total</p>
+                                    <p class="fw-bolder text-dark">$3.50</p>
+                                </div>
+                                <button class="btn fw-bold btn-danger btn-full">
+                                    Pagar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </section>
+    <!-- 
+    SCRIPTS
+    --> 
+    <script>
+        function selectCard(cardElement) {
+            // Deseleccionar todas las columnas
+            document.querySelectorAll('.selectable-col').forEach(col => {
+                col.classList.remove('selected');
+                col.querySelector('.offer-radio').checked = false;
+            });
+    
+            // Seleccionar la tarjeta actual
+            cardElement.classList.add('selected');
+            cardElement.querySelector('.offer-radio').checked = true;
+        }
+    </script>
+
+<script>
+    function toggleForm() {
+      const checkbox = document.getElementById('toggleFormCheckbox');
+      const form = document.getElementById('billingForm');
+      form.style.display = checkbox.checked ? 'block' : 'none';
+    }
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
